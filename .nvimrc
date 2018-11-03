@@ -195,3 +195,18 @@ endfunction
 function! LightlineFileencoding()
     return winwidth(0) > 60 ? strlen(&fenc) ? &fenc : &enc : ''
 endfunction
+
+" ---------------------------- key mapping
+
+" ----------- mode change
+inoremap <C-j> <Esc>
+nnoremap <C-j> <Esc>
+
+" ----------- close
+nnoremap qq <Esc>:q<Cr>
+
+" ----------- operate tabpages
+nnoremap t <Nop>
+nnoremap <silent> tt :<C-u>tabnew<Cr>:tabmove<Cr>
+nnoremap <silent> tl :<C-u>tabnext<Cr>
+nnoremap <silent> th :<C-u>tabprevious<Cr>
