@@ -48,7 +48,6 @@ zplug "monochromegane/the_platinum_searcher", as:command, from:gh-r, rename-to:"
 zplug 'BurntSushi/ripgrep', from:gh-r, as:command, rename-to:"rg"
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:"ghq"
 zplug "stedolan/jq", as:command, from:gh-r, rename-to:"jq"
-zplug "b4b4r07/ssh-keyreg", as:command, use:bin
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
