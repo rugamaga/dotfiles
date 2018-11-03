@@ -1,0 +1,34 @@
+[core]
+    autocrlf = false
+    quotepath = false
+    ignorecase = false
+    pager = nkf -w | LESSCHARSET=utf-8 less
+[push]
+    default = simple
+[pull]
+    rebase = preserve
+[merge]
+    tool = vimdiff
+[mergetool]
+    prompt = true
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE $MERGE -c '$wincmd w' -c 'wincmd J'
+[diff]
+    tool = vimdiff
+    algorithm = histogram
+[difftool]
+    prompt = false
+[help]
+    autocorrect = -1
+[color]
+    ui = auto
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+[alias]
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+    staged = diff --cached
+[ghq]
+    root = ~/src
