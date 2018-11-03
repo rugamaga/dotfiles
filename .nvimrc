@@ -210,3 +210,5 @@ nnoremap t <Nop>
 nnoremap <silent> tt :<C-u>tabnew<Cr>:tabmove<Cr>
 nnoremap <silent> tl :<C-u>tabnext<Cr>
 nnoremap <silent> th :<C-u>tabprevious<Cr>
+" create current buffer tabpage
+nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
