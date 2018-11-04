@@ -24,6 +24,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'airblade/vim-gitgutter'
 Plug 'lambdalisue/gina.vim'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'bfredl/nvim-miniyank'
 
 call plug#end()
 
@@ -212,3 +213,8 @@ nnoremap <silent> tl :<C-u>tabnext<Cr>
 nnoremap <silent> th :<C-u>tabprevious<Cr>
 " create current buffer tabpage
 nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
+
+" ----------- yank & pasting
+" use miniyank for fixing : https://github.com/neovim/neovim/issues/1822
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
