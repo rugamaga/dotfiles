@@ -26,6 +26,9 @@ export USE_NERD_FONT=1
 export ALIEN_THEME="green"
 export ALIEN_DATE_TIME_FORMAT='%Y/%m/%d %H:%M:%S'
 
+# ----------- path
+export PATH="${PATH}:${HOME}/.anyenv/bin"
+
 # ------------------------- zplug plugins
 if [[ ! -d ~/.zplug ]]; then
   git clone https://github.com/zplug/zplug ~/.zplug
