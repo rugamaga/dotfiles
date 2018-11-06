@@ -52,6 +52,9 @@ source ${SETTINGS_ROOT}/.nvimrc
 EOS
 
 # ------------------------- install anyenv
+export TMPDIR="$HOME/.tmp"
+mkdir -p $TMPDIR
+
 git clone https://github.com/riywo/anyenv ~/.anyenv
 mkdir -p ~/.anyenv/envs
 mkdir -p $(anyenv root)/plugins
@@ -69,23 +72,27 @@ if [ -x "$(command -v anyenv)" ]; then
 fi
 
 # ------------------------- install ruby
-rbenv install -s 2.5.3
-rbenv global 2.5.3
+LATEST_RUBY=`rbenv install --list | grep -v - | tail -1`
+rbenv install -s $LATEST_RUBY
+rbenv global $LATEST_RUBY
 gem install bundler
 
 # ------------------------- install python
-pyenv install -s 2.7.15
-pyenv virtualenv 2.7.15 neovim2
+LATEST_PYTHON2='2.7.15'
+pyenv install -s $LATEST_PYTHON2
+pyenv virtualenv $LATEST_PYTHON2 neovim2
 pyenv shell neovim2
 pip install neovim sexpdata websocket-client
 
-pyenv install -s 3.7.1
-pyenv virtualenv 3.7.1 neovim3
+LATEST_PYTHON=`pyenv install --list | grep -v - | tail -1`
+pyenv install -s $LATEST_PYTHON
+pyenv virtualenv $LATEST_PYTHON neovim3
 pyenv shell neovim3
 pip install neovim sexpdata websocket-client
 
-pyenv global 3.7.1
+pyenv global $LATEST_PYTHON
 
 # ------------------------- install nodejs
-ndenv install -s v11.1.0
-ndenv global v11.1.0
+LATEST_NODEJS=`ndenv install --list | grep -v - | tail -1`
+ndenv install -s $LATEST_NODEJS
+ndenv global $LATEST_NODEJS
