@@ -84,7 +84,7 @@ pyenv virtualenv $LATEST_PYTHON2 neovim2
 pyenv shell neovim2
 pip install neovim sexpdata websocket-client
 
-LATEST_PYTHON=`pyenv install --list | grep -v - | tail -1`
+LATEST_PYTHON=`pyenv install --list | grep -e "^\s*[0-9]\+\.[0-9]\+\.[0-9]\+$" | tail -1`
 pyenv install -s $LATEST_PYTHON
 pyenv virtualenv $LATEST_PYTHON neovim3
 pyenv shell neovim3
