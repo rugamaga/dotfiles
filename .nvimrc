@@ -27,6 +27,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'bfredl/nvim-miniyank'
 Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
