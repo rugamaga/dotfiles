@@ -25,9 +25,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'lambdalisue/gina.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'bfredl/nvim-miniyank'
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 call plug#end()
 
@@ -221,3 +223,6 @@ nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
 " use miniyank for fixing : https://github.com/neovim/neovim/issues/1822
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
+
+" ----------- shortcut fzf
+nnoremap gf :GFiles<Cr><Paste>
