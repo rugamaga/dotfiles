@@ -48,7 +48,6 @@ zplug "jhawthorn/fzy", as:command, hook-build:"make"
 zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
 zplug "peco/peco", as:command, from:gh-r
 zplug "monochromegane/the_platinum_searcher", as:command, from:gh-r, rename-to:"pt"
-zplug 'BurntSushi/ripgrep', from:gh-r, as:command, rename-to:"rg"
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:"ghq"
 zplug "stedolan/jq", as:command, from:gh-r, rename-to:"jq"
 
