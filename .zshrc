@@ -12,11 +12,7 @@ export MANPATH="${HOME_LOCAL}/man:/usr/local/man:${MANPATH}"
 export HOME_LOCAL="${HOME}/.local/"
 
 # ----------- editor
-if [ -x "$(command -v vimr)" ]; then
-  export EDITOR="vimr --wait --nvim"
-else
-  export EDITOR="nvim"
-fi
+export EDITOR="nvim"
 
 # ----------- golang
 export GOPATH=$HOME
