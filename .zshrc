@@ -80,6 +80,10 @@ chpwd_functions+=( neovim_autocd )
 
 # ------------------------- key binding
 
+# ----------- viins
+bindkey -v
+bindkey -v '^?' backward-delete-char
+
 # ----------- history
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
