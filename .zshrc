@@ -17,6 +17,9 @@ export EDITOR="nvim"
 # ----------- golang
 export GOPATH=$HOME
 
+# ----------- python
+export PIPENV_VENV_IN_PROJECT=true
+
 # ----------- prompt setting
 export USE_NERD_FONT=1
 export ALIEN_THEME="green"
