@@ -30,6 +30,8 @@ Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'derekwyatt/vim-scala'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 call plug#end()
 
@@ -95,6 +97,7 @@ command! -bang -nargs=* MyAutocmd autocmd<bang> my_augroup <args>
 MyAutocmd BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
 MyAutocmd FileType php setlocal shiftwidth=4 softtabstop=4 expandtab
 
+MyAutocmd BufRead,BufNewFile *.sbt set filetype=scala
 
 " ---------------------------- quickrun
 let g:quickrun_config = {}
