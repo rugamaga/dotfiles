@@ -63,9 +63,10 @@ mkdir -p ~/.anyenv/envs
 mkdir -p $(anyenv root)/plugins
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
 
+anyenv install --init
 anyenv install -s rbenv
 anyenv install -s pyenv
-anyenv install -s ndenv
+anyenv install -s nodenv
 
 git clone https://github.com/pyenv/pyenv-virtualenv.git $(anyenv root)/envs/pyenv/plugins/pyenv-virtualenv
 
@@ -98,6 +99,6 @@ pyenv global $LATEST_PYTHON
 pip install --user pipenv
 
 # ------------------------- install nodejs
-LATEST_NODEJS=`ndenv install --list | grep -v - | tail -1`
-ndenv install -s $LATEST_NODEJS
-ndenv global $LATEST_NODEJS
+LATEST_NODEJS=`nodenv install --list | grep -v - | tail -1`
+nodenv install -s $LATEST_NODEJS
+nodenv global $LATEST_NODEJS
