@@ -27,6 +27,9 @@ export SETTINGS_ROOT="${SETTINGS_ROOT}"
 
 # (setup environment specific settings here)
 
+# ------------------------- load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # ------------------------- load common
 source "${SETTINGS_ROOT}/.zshrc"
 EOS
@@ -91,6 +94,8 @@ pyenv shell neovim3
 pip install neovim sexpdata websocket-client
 
 pyenv global $LATEST_PYTHON
+
+pip install --user pipenv
 
 # ------------------------- install nodejs
 LATEST_NODEJS=`ndenv install --list | grep -v - | tail -1`
