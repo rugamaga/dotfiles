@@ -1,0 +1,13 @@
+{
+    "explorer.confirmDelete": false,
+    "glassit.alpha": 100,
+    "editor.fontFamily": "Cica, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 18,
+    "terminal.integrated.fontSize": 18,
+    "editor.autoClosingQuotes": "never",
+    "editor.autoSurround": "never",
+    "workbench.startupEditor": "none",
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "workbench.colorTheme": "Warm Quiet Light"
+}
