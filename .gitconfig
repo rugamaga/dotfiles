@@ -3,7 +3,7 @@
     quotepath = false
     ignorecase = false
     pager = nkf -w | LESSCHARSET=utf-8 less
-    excludesfiles = .gitignore_global
+    excludesfile = ~/dotfiles/.gitignore_global
 [push]
     default = simple
 [pull]
