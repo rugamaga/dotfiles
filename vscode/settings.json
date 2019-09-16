@@ -54,5 +54,6 @@
             "after": [":", "q", "<CR>"]
         }
     ],
-    "git.autofetch": true
+    "git.autofetch": true,
+    "explorer.confirmDragAndDrop": false
 }
