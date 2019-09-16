@@ -9,5 +9,49 @@
     "workbench.startupEditor": "none",
     "editor.renderWhitespace": "all",
     "editor.renderControlCharacters": true,
-    "workbench.colorTheme": "Warm Quiet Light"
+    "workbench.sideBar.location": "left",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.useExperimentalGridLayout": true,
+    "vim.whichwrap": "h,l,<,>,[,]",
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<Leader>", "b"],
+            "commands": ["editor.debug.action.toggleBreakpoint"]
+        },
+        {
+            "before": ["<Leader>", "r"],
+            "commands": [
+                {
+                    "command": "extension.node-debug.startWithStopOnEntry",
+                    "when": "!isDebugMode"
+                },
+                {
+                    "command": "workbench.action.debug.continue",
+                    "when": "isDebugMode"
+                }
+            ]
+        },
+        {
+            "before": ["t", "t"],
+            "commands": [
+                {
+                    "command": "workbench.action.files.openFileFolder",
+                }
+            ]
+        },
+        {
+            "before": ["t", "l"],
+            "commands": ["workbench.action.nextEditor"]
+        },
+        {
+            "before": ["t", "r"],
+            "commands": ["workbench.action.previousEditor"]
+        },
+        {
+            "before": ["q", "q"],
+            "after": [":", "q", "<CR>"]
+        }
+    ]
 }
