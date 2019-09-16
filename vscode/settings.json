@@ -53,5 +53,6 @@
             "before": ["q", "q"],
             "after": [":", "q", "<CR>"]
         }
-    ]
+    ],
+    "git.autofetch": true
 }
