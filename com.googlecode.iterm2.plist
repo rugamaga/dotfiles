@@ -375,7 +375,7 @@
 			<key>Blink Allowed</key>
 			<false/>
 			<key>Blinking Cursor</key>
-			<false/>
+			<true/>
 			<key>Blur</key>
 			<true/>
 			<key>Blur Radius</key>
@@ -461,6 +461,16 @@
 					<integer>49</integer>
 					<key>modifiers</key>
 					<integer>1179648</integer>
+				</dict>
+				<dict>
+					<key>characters</key>
+					<string></string>
+					<key>charactersIgnoringModifiers</key>
+					<string></string>
+					<key>keyCode</key>
+					<integer>36</integer>
+					<key>modifiers</key>
+					<integer>1310720</integer>
 				</dict>
 			</array>
 			<key>HotKey Characters</key>
@@ -1181,7 +1191,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>524773529.34518802</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>37</integer>
+	<integer>41</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
