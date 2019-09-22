@@ -100,6 +100,6 @@ bindkey '^r' anyframe-widget-cd-ghq-repository
 
 # ------------------------- eval envs
 if [ -x "$(command -v anyenv)" ]; then
-  eval "$(anyenv init - zsh)"
+  eval "$(anyenv init - --no-rehash zsh)"
   alias nvim="PYENV_VERSION=neovim3 nvr -s --remote-silent"
 fi
