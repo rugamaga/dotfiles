@@ -105,6 +105,12 @@ bindkey "^n" history-beginning-search-forward-end
 # ----------- anyframe
 bindkey '^r' anyframe-widget-cd-ghq-repository
 
+# ----------- tmux
+# iTerm integrated tmux on ssh session
+function smux() {
+  ssh $* -t "tmux -u -CC new -A -s smux-\${\$(hostname)//\\./-}"
+}
+
 # ------------------------- eval envs
 if [ -x "$(command -v anyenv)" ]; then
   eval "$(anyenv init - --no-rehash zsh)"
