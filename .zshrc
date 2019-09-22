@@ -5,11 +5,11 @@ export LANGUAGE=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
 
-# ----------- man
-export MANPATH="${HOME_LOCAL}/man:/usr/local/man:${MANPATH}"
-
 # ----------- local
 export HOME_LOCAL="${HOME}/.local/"
+
+# ----------- man
+export MANPATH="${HOME_LOCAL}/man:/usr/local/man:${MANPATH}"
 
 # ----------- editor
 export EDITOR="nvim"
