@@ -1,3 +1,9 @@
+# ------------------------- zplugin modules
+if [[ ! -d ~/.zplugin/bin/zmodules/Src  ]]; then
+  module_path+=( "~/.zplugin/bin/zmodules/Src" )
+  zmodload zdharma/zplugin
+fi
+
 # ------------------------- variables
 
 # ----------- locale
@@ -29,6 +35,8 @@ export ALIEN_DATE_TIME_FORMAT='%Y/%m/%d %H:%M:%S'
 export PATH="${HOME}/.anyenv/bin:$HOME/.cargo/bin:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:${PATH}"
 
 # ------------------------- zplugin
+
+# auto install zplugin
 if [[ ! -d ~/.zplugin/bin ]]; then
   mkdir -p ~/.zplugin
   git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
@@ -38,6 +46,10 @@ declare -A ZPLGM
 ZPLGM[COMPINIT_OPTS]=-C
 source "$HOME/.zplugin/bin/zplugin.zsh"
 
+# auto install zplugin module
+if [[ ! -d ~/.zplugin/bin/zmodules/Src ]]; then
+  zplugin module build
+fi
 zplugin light chrissicool/zsh-256color
 zplugin light eendroroy/alien
 zplugin light mafredri/zsh-async
