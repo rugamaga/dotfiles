@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>444.42</string>
+	<key>AMApplicationVersion</key>
+	<string>2.9</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>AppleScriptを実行</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>-------- コンフィグ-- 個人的にpyenvでneovim向けのpython3をneovim3というvenvで管理している。-- これを有効にするためにPYENV_VERSIONを使ってneovim3を設定している。-- 利用者によっては異なる値を取るべきなので、変えて使ってくださいproperty nvr_option_env : "PYENV_VERSION=neovim3"-- NVRの呼び出しオプション-- remote-tabがいいとかremoteがいいとか人によると思うので変えてくださいproperty nvr_option_args : "-s --remote-tab-silent"-- ここで使う "Hotkey Window" というProfileは-- iTermのデフォルトなので、利用者によっては違うProfile名を使っているかもしれないので、その場合は変更する。-- これもなにかコンフィグを追い出す良い手段がほしいproperty hotkey_window_profile_name : "Hotkey Window"-------- 本体on run argv	-- 各ファイルパスをPOSIX形式でとった文字列を作る	set hfs_paths to item 1 of argv	-- iTermのHotkeyWindowで開く	openWithHotkeyWindow(hfs_paths)end run-- HotkeyWindowで指定された該当のファイルを開く-- hfs_paths: hfsのalias形式(:区切り)で指定されたパスのリストon openWithHotkeyWindow(hfs_paths)	-- パスのリストをPOSIX形式の文字列に変換	-- この後のコマンドの都合のためエスケープを諸々やっているので注意	set posix_paths to ""	repeat with hfs_path in hfs_paths		set posix_path to POSIX path of hfs_path		set posix_paths to (posix_paths &amp; " \\\"" &amp; escapeSpace(posix_path) &amp; "\\\"")	end repeat	-- 実行するコマンドを作成する	set cmd to " zsh -i -c \"" &amp; nvr_option_env &amp; " nvr " &amp; nvr_option_args &amp; " " &amp; posix_paths &amp; "\""		-- HotkeyWindowを探しだす	set hotkey_window to ensureHotkeyWindow()		-- HotkeyWindowに対して各種の操作を実施	tell application "iTerm"		tell hotkey_window			select hotkey_window			activate			reveal hotkey window			set newtab to (create tab with default profile command cmd)			tell newtab to activate		end tell	end tellend openWithHotkeyWindow-- 「必ずHotkeyWindowがある」状態を作り、そのHotkeyWindowを返すon ensureHotkeyWindow()	-- iTerm2を起動する	if not isAppRunning("iTerm2") then		activate application "iTerm"	end if		tell application "iTerm"		-- すでにhotkey windowがあるようならそれを返す		repeat with win in windows			if is hotkey window of win then				return win			end if		end repeat		-- まだhotkey windowがないようなので作って返す		return create hotkey window with profile hotkey_window_profile_name	end tellend ensureHotkeyWindow-- 対象の名前のアプリケーションが起動しているか？on isAppRunning(appName)	tell application "System Events" to (name of processes) contains appNameend isAppRunning-- 文字列の中からスペースをエスケープしてコマンドラインで流せるようにするon escapeSpace(myText)	set oldDel to AppleScript's text item delimiters	set AppleScript's text item delimiters to " "	set myText to every text item of myText	set AppleScript's text item delimiters to "\\ "	set myText to myText as string	set AppleScript's text item delimiters to oldDel	return myTextend escapeSpace</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>52E74741-D879-4AC2-8193-C8F21A0BB440</string>
+				<key>Keywords</key>
+				<array>
+					<string>実行</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>17AF004E-FFFE-412B-BB82-BF8967286154</string>
+				<key>UUID</key>
+				<string>359E22EA-79C7-4740-B314-E88184D1CBB7</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>769.000000:742.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict/>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.application</string>
+	</dict>
+</dict>
+</plist>
