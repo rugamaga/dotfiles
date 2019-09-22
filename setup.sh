@@ -27,9 +27,6 @@ export SETTINGS_ROOT="${SETTINGS_ROOT}"
 
 # (setup environment specific settings here)
 
-# ------------------------- load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # ------------------------- load common
 source "${SETTINGS_ROOT}/.zshrc"
 EOS
