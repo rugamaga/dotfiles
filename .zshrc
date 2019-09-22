@@ -28,36 +28,37 @@ export ALIEN_DATE_TIME_FORMAT='%Y/%m/%d %H:%M:%S'
 # ----------- path
 export PATH="${HOME}/.anyenv/bin:$HOME/.cargo/bin:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:${PATH}"
 
-# ------------------------- zplug plugins
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
+# ------------------------- zplugin
+if [[ ! -d ~/.zplugin/bin ]]; then
+  mkdir -p ~/.zplugin
+  git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
 fi
 
-source ~/.zplug/init.zsh
+declare -A ZPLGM
+ZPLGM[COMPINIT_OPTS]=-C
+source "$HOME/.zplugin/bin/zplugin.zsh"
 
-zplug "zplug/zplug", hook-build:"zplug --self-manage"
-zplug "chrissicool/zsh-256color", use:"zsh-256color.plugin.zsh"
-zplug "eendroroy/alien", from:github, as:theme
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting"
-zplug "mafredri/zsh-async", from:github
-zplug "mollifier/anyframe"
-zplug "jhawthorn/fzy", as:command, hook-build:"make"
-zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:"fzf"
-zplug "peco/peco", as:command, from:gh-r
-zplug "monochromegane/the_platinum_searcher", as:command, from:gh-r, rename-to:"pt"
-zplug "motemen/ghq", as:command, from:gh-r, rename-to:"ghq"
-zplug "stedolan/jq", as:command, from:gh-r, rename-to:"jq"
+zplugin light chrissicool/zsh-256color
+zplugin light eendroroy/alien
+zplugin light mafredri/zsh-async
+zplugin light mollifier/anyframe
 
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+zplugin ice as"program" from"gh-r"; zplugin light jhawthorn/fzy
+zplugin ice as"program" from"gh-r" mv"fzf-* -> fzf"; zplugin light junegunn/fzf-bin
+zplugin ice as"program" from"gh-r"; zplugin load peco/peco
+zplugin ice as"program" from"gh-r" pick"*/ghq"; zplugin light motemen/ghq
+zplugin ice as"program" from"gh-r" mv"jq-* -> jq"; zplugin light stedolan/jq
+zplugin ice as"program" from"gh-r" pick"*/pt"; zplugin light monochromegane/the_platinum_searcher
 
-zplug load
+zplugin ice wait"0" lucid atload"_zsh_autosuggest_start"
+zplugin light zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+
+zplugin ice wait"0" lucid atinit"zpcompinit; zpcdreplay"
+zplugin light zdharma/fast-syntax-highlighting
+
+autoload -U compinit -C
+compinit -C
 
 # ------------------------- basic options
 HISTFILE=~/.zsh_history
