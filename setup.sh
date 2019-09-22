@@ -59,11 +59,6 @@ let g:python3_host_prog = '$HOME/.anyenv/envs/pyenv/versions/neovim3/bin/python'
 source ${SETTINGS_ROOT}/.nvimrc
 EOS
 
-# ------------ .vscode
-if [ "$OS" == "mac" ]; then
-  ./vscode_install.sh
-fi
-
 # ------------------------- install anyenv
 export TMPDIR="$HOME/.tmp"
 mkdir -p $TMPDIR
