@@ -50,17 +50,14 @@ source "$HOME/.zplugin/bin/zplugin.zsh"
 if [[ ! -d ~/.zplugin/bin/zmodules/Src ]]; then
   zplugin module build
 fi
-zplugin light chrissicool/zsh-256color
-zplugin light eendroroy/alien
-zplugin light mafredri/zsh-async
-zplugin light mollifier/anyframe
 
-zplugin ice as"program" from"gh-r"; zplugin light jhawthorn/fzy
-zplugin ice as"program" from"gh-r" mv"fzf-* -> fzf"; zplugin light junegunn/fzf-bin
-zplugin ice as"program" from"gh-r"; zplugin load peco/peco
-zplugin ice as"program" from"gh-r" pick"*/ghq"; zplugin light motemen/ghq
-zplugin ice as"program" from"gh-r" mv"jq-* -> jq"; zplugin light stedolan/jq
-zplugin ice as"program" from"gh-r" pick"*/pt"; zplugin light monochromegane/the_platinum_searcher
+zplugin light eendroroy/alien
+
+zplugin ice wait"0" lucid; zplugin light mollifier/anyframe
+
+zplugin ice wait"0" lucid as"program" from"gh-r" mv"fzf-* -> fzf"; zplugin light junegunn/fzf-bin
+zplugin ice wait"0" lucid as"program" from"gh-r" pick"*/ghq"; zplugin light motemen/ghq
+zplugin ice wait"0" lucid as"program" from"gh-r" mv"jq-* -> jq"; zplugin light stedolan/jq
 
 zplugin ice wait"0" lucid atload"_zsh_autosuggest_start"
 zplugin light zsh-users/zsh-autosuggestions
