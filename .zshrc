@@ -26,7 +26,7 @@ export ALIEN_THEME="green"
 export ALIEN_DATE_TIME_FORMAT='%Y/%m/%d %H:%M:%S'
 
 # ----------- path
-export PATH="${PATH}:${HOME}/.anyenv/bin:${HOME}/bin:${HOME}/.local/bin"
+export PATH="${HOME}/.anyenv/bin:$HOME/.cargo/bin:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:${PATH}"
 
 # ------------------------- zplug plugins
 if [[ ! -d ~/.zplug ]]; then

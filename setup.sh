@@ -34,6 +34,11 @@ export SETTINGS_ROOT="${SETTINGS_ROOT}"
 source "${SETTINGS_ROOT}/.zshrc"
 EOS
 
+# ------------ .zshenv
+cat << EOS > $HOME/.zshenv
+setopt no_global_rcs
+EOS
+
 # ------------ .gitconfig
 cat << EOS > $HOME/.gitconfig
 [user]
