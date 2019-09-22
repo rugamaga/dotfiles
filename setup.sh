@@ -22,13 +22,30 @@ EMAIL=${EMAIL:-rugamaga@gmail.com}
 
 cat << EOS > $HOME/.zshrc
 # ------------------------- variables
+# profiling mode
+PROFILING=false
+
 # dotfiles directory
 export SETTINGS_ROOT="${SETTINGS_ROOT}"
 
-# (setup environment specific settings here)
+# ------------------------- start profiling
+if \$PROFILING; then
+  zmodload zsh/zprof && zprof
+fi
 
-# ------------------------- load common
+# ------------------------- load common config
 source "${SETTINGS_ROOT}/.zshrc"
+
+# ------------------------- environment specific configs
+
+# (you can setup environment specific configs here)
+
+# ------------------------- end profiling
+if \$PROFILING ; then
+  if (which zprof > /dev/null 2>&1) ;then
+    zprof
+  fi
+fi
 EOS
 
 # ------------ .zshenv
