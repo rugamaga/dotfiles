@@ -12,7 +12,7 @@ export HOME_LOCAL="${HOME}/.local/"
 export MANPATH="${HOME_LOCAL}/man:/usr/local/man:${MANPATH}"
 
 # ----------- editor
-export EDITOR="nvim"
+export EDITOR="\\nvim"
 
 # ----------- golang
 export GOPATH=$HOME
@@ -101,4 +101,5 @@ bindkey '^r' anyframe-widget-cd-ghq-repository
 # ------------------------- eval envs
 if [ -x "$(command -v anyenv)" ]; then
   eval "$(anyenv init - zsh)"
+  alias nvim="PYENV_VERSION=neovim3 nvr -s --remote-silent"
 fi
