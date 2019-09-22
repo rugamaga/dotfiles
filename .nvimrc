@@ -2,7 +2,7 @@
 set encoding=utf-8
 scriptencoding utf-8
 set termencoding=utf-8
-set fileencodings=utf-8,euc-jp,cp932,sjis
+set fileencodings=utf-8,ucs-bom,euc-jp,cp932,sjis
 
 " ---------------------------- Use neovim
 set nocompatible
