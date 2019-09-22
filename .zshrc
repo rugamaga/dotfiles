@@ -66,9 +66,6 @@ ZSH_AUTOSUGGEST_USE_ASYNC=true
 zplugin ice wait"0" lucid atinit"zpcompinit; zpcdreplay"
 zplugin light zdharma/fast-syntax-highlighting
 
-autoload -U compinit -C
-compinit -C
-
 # ------------------------- basic options
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
