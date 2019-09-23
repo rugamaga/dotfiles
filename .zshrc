@@ -27,9 +27,7 @@ export GOPATH=$HOME
 export PIPENV_VENV_IN_PROJECT=true
 
 # ----------- prompt setting
-export USE_NERD_FONT=1
-export ALIEN_THEME="blue"
-export ALIEN_DATE_TIME_FORMAT='%Y/%m/%d %H:%M:%S'
+export PURE_POWER_MODE=modern
 
 # ----------- path
 export PATH="${HOME}/.anyenv/bin:$HOME/.cargo/bin:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:${PATH}"
@@ -51,7 +49,8 @@ if [[ ! -d ~/.zplugin/bin/zmodules/Src ]]; then
   zplugin module build
 fi
 
-zplugin light eendroroy/alien
+zplugin light romkatv/powerlevel10k
+zplugin snippet https://github.com/sainnhe/edge/blob/master/zsh/.zsh-pure-power-dark
 
 zplugin ice wait"0" lucid; zplugin light mollifier/anyframe
 
@@ -122,3 +121,6 @@ function smux() {
 if [ -x "$(command -v anyenv)" ]; then
   eval "$(anyenv init - --no-rehash zsh)"
 fi
+
+# ------------------------- p10k
+[[ -f ${SETTINGS_ROOT}/.p10k.zsh ]] && source ${SETTINGS_ROOT}/.p10k.zsh
