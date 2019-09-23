@@ -16,11 +16,19 @@ read -p "input your email: " EMAIL
 EMAIL=${EMAIL:-rugamaga@gmail.com}
 
 
+# ------------------------- setup functions
+
+# create if not file exists
+# otherwise, don't touch.
+function create_if_missing () {
+  [[ -e "$1" ]] || cat - > "$1"
+}
+
 # ------------------------- output template
 
 # ------------ .zshrc
 
-cat << EOS > $HOME/.zshrc
+create_if_missing "$HOME/.zshrc" << EOS
 # ------------------------- variables
 # profiling mode
 PROFILING=false
@@ -49,12 +57,12 @@ fi
 EOS
 
 # ------------ .zshenv
-cat << EOS > $HOME/.zshenv
+create_if_missing "$HOME/.zshenv" << EOS
 source $SETTINGS_ROOT/.zshenv
 EOS
 
 # ------------ .gitconfig
-cat << EOS > $HOME/.gitconfig
+create_if_missing "$HOME/.gitconfig" << EOS
 [user]
   email = ${EMAIL}
   name = ${NAME}
@@ -65,7 +73,7 @@ EOS
 
 # ------------ .config/nvim/init.vim
 mkdir -p $HOME/.config/nvim/
-cat << EOS > $HOME/.config/nvim/init.vim
+create_if_missing "$HOME/.config/nvim/init.vim" << EOS
 let g:python_host_prog = '$HOME/.anyenv/envs/pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog = '$HOME/.anyenv/envs/pyenv/versions/neovim3/bin/python'
 
@@ -76,7 +84,7 @@ EOS
 
 # ------------------------- .tmux.conf
 # TODO: if there exists external file importing method, use the method.
-cat << EOS > $HOME/.tmux.conf
+create_if_missing "$HOME/.tmux.conf" << EOS
 set -g default-terminal "xterm-256color-italic"
 set-option -ga terminal-overrides ",xterm*:Tc:sitm=\E[3m"
 EOS
@@ -88,17 +96,17 @@ tic -x xterm-256color-italic.terminfo
 export TMPDIR="$HOME/.tmp"
 mkdir -p $TMPDIR
 
-git clone https://github.com/riywo/anyenv ~/.anyenv
+[[ -d ~/.anyenv ]] || git clone https://github.com/riywo/anyenv ~/.anyenv
 mkdir -p ~/.anyenv/envs
 mkdir -p $(anyenv root)/plugins
-git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+[[ -d $(anyenv root)/plugins/anyenv-update ]] || git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
 
 anyenv install --init
 anyenv install -s rbenv
 anyenv install -s pyenv
 anyenv install -s nodenv
 
-git clone https://github.com/pyenv/pyenv-virtualenv.git $(anyenv root)/envs/pyenv/plugins/pyenv-virtualenv
+[[ -d $(anyenv root)/envs/pyenv/plugins/pyenv-virtualenv ]] || git clone https://github.com/pyenv/pyenv-virtualenv.git $(anyenv root)/envs/pyenv/plugins/pyenv-virtualenv
 
 # ------------------------- eval envs
 if [ -x "$(command -v anyenv)" ]; then
