@@ -73,6 +73,14 @@ let g:python3_host_prog = '$HOME/.anyenv/envs/pyenv/versions/neovim3/bin/python'
 source ${SETTINGS_ROOT}/.nvimrc
 EOS
 
+
+# ------------------------- .tmux.conf
+# TODO: if there exists external file importing method, use the method.
+cat << EOS > $HOME/.tmux.conf
+set -g default-terminal "xterm-256color-italic"
+set-option -ga terminal-overrides ",xterm*:Tc:sitm=\E[3m"
+EOS
+
 # ------------------------- register terminfo
 tic -x xterm-256color-italic.terminfo
 
