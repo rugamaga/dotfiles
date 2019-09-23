@@ -28,7 +28,7 @@ export PIPENV_VENV_IN_PROJECT=true
 
 # ----------- prompt setting
 export USE_NERD_FONT=1
-export ALIEN_THEME="green"
+export ALIEN_THEME="blue"
 export ALIEN_DATE_TIME_FORMAT='%Y/%m/%d %H:%M:%S'
 
 # ----------- path
