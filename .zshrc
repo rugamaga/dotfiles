@@ -81,7 +81,9 @@ setopt extended_glob
 
 # changes buffer current directory when changed neovim terminal current directory.
 function neovim_autocd() {
-  [[ $NVIM_LISTEN_ADDRESS ]] && ${SETTINGS_ROOT}/bin/neovim-autocd.py
+  if [[ $NVIM_LISTEN_ADDRESS ]] ; then
+    PYENV_VERSION=neovim3 python3 ${SETTINGS_ROOT}/bin/neovim-autocd.py
+  fi
 }
 
 if [[ $NVIM_LISTEN_ADDRESS ]] ; then
