@@ -73,6 +73,9 @@ let g:python3_host_prog = '$HOME/.anyenv/envs/pyenv/versions/neovim3/bin/python'
 source ${SETTINGS_ROOT}/.nvimrc
 EOS
 
+# ------------------------- register terminfo
+tic -x xterm-256color-italic.terminfo
+
 # ------------------------- install anyenv
 export TMPDIR="$HOME/.tmp"
 mkdir -p $TMPDIR
