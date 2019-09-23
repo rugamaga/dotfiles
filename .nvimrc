@@ -16,7 +16,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'sainnhe/edge'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim'
@@ -29,7 +29,6 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'derekwyatt/vim-scala'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
@@ -39,7 +38,7 @@ call plug#end()
 syntax on
 set termguicolors
 set background=dark
-silent! colorscheme challenger_deep
+silent! colorscheme edge
 " set background color as transparent
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
@@ -114,7 +113,7 @@ let g:indent_guides_space_guides = 1
 
 " ---------------------------- lightline
 let g:lightline = {
-\   'colorscheme': 'challenger_deep',
+\   'colorscheme': 'edge',
 \   'separator': { 'left': "\uE0C4", 'right': "\uE0C5" },
 \   'subseparator': { 'left': "\uE0b1", 'right': "\uE0b3" },
 \   'active': {
