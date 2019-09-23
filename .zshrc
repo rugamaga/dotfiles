@@ -85,6 +85,13 @@ function neovim_autocd() {
   [[ $NVIM_LISTEN_ADDRESS ]] && ${SETTINGS_ROOT}/bin/neovim-autocd.py
 }
 
+if [[ $NVIM_LISTEN_ADDRESS ]] ; then
+  # In this context, we already in neovim terminal.
+  # so, we should open files on current neovim instance tab.
+  alias nvim="PYENV_VERSION=neovim3 nvr -s --remote-tab-silent"
+  export EDITOR="PYENV_VERSION=neovim3 nvr -s --remote-tab-wait-silent"
+fi
+
 # ------------------------- events
 chpwd_functions+=( neovim_autocd )
 
@@ -114,5 +121,4 @@ function smux() {
 # ------------------------- eval envs
 if [ -x "$(command -v anyenv)" ]; then
   eval "$(anyenv init - --no-rehash zsh)"
-  alias nvim="PYENV_VERSION=neovim3 nvr -s --remote-silent"
 fi
