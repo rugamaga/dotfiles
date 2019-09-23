@@ -50,13 +50,7 @@ EOS
 
 # ------------ .zshenv
 cat << EOS > $HOME/.zshenv
-case \${OSTYPE} in
-  darwin*)
-    setopt no_global_rcs
-    ;;
-  linux*)
-    ;;
-esac
+source $SETTINGS_ROOT/.zshenv
 EOS
 
 # ------------ .gitconfig
