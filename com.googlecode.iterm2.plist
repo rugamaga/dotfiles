@@ -1036,7 +1036,7 @@ New Tab with Current Profile</string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>278 269 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1920 1057 0 0 1920 1057 </string>
+	<string>0 0 1440 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 0 1920 1057 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -2025,7 +2025,7 @@ New Tab with Current Profile</string>
 			<key>Tags</key>
 			<array/>
 			<key>Terminal Type</key>
-			<string>xterm-256color</string>
+			<string>xterm-256color-italic</string>
 			<key>Thin Strokes</key>
 			<integer>4</integer>
 			<key>Title Components</key>
@@ -2074,9 +2074,9 @@ New Tab with Current Profile</string>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1920, 1080}}</string>
+		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{688, 1020}</string>
+		<string>{223, 853}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -2091,7 +2091,7 @@ New Tab with Current Profile</string>
 	<key>NoSyncLastTipTime</key>
 	<real>524773529.34518802</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>54</integer>
+	<integer>56</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
