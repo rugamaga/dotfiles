@@ -17,6 +17,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'sainnhe/edge'
+Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim'
