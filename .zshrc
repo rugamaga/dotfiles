@@ -63,7 +63,6 @@ zplugin ice wait"0" lucid as"program" from"gh-r" mv"jq-* -> jq"; zplugin light s
 
 zplugin ice wait"0" lucid atload"_zsh_autosuggest_start"
 zplugin light zsh-users/zsh-autosuggestions
-ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 zplugin ice wait"0" lucid atinit"zpcompinit; zpcdreplay"
 zplugin light zdharma/fast-syntax-highlighting
