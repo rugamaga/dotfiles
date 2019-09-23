@@ -1092,12 +1092,16 @@ New Tab with Current Profile</string>
 			</dict>
 			<key>Ansi 12 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>1</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.3333333432674408</real>
+				<real>0.63803755724802613</real>
 				<key>Red Component</key>
-				<real>0.3333333432674408</real>
+				<real>0.4874114990234375</real>
 			</dict>
 			<key>Ansi 13 Color</key>
 			<dict>
@@ -1146,12 +1150,16 @@ New Tab with Current Profile</string>
 			</dict>
 			<key>Ansi 4 Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>1</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.55294120311737061</real>
+				<real>0.55170619160276346</real>
 				<key>Red Component</key>
-				<real>0.76862746477127075</real>
+				<real>0.4490814208984375</real>
 			</dict>
 			<key>Ansi 5 Color</key>
 			<dict>
@@ -1305,13 +1313,13 @@ New Tab with Current Profile</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.99607843137254903</real>
+				<real>0.94615492701400739</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.99607843137254903</real>
+				<real>0.9461669921875</real>
 				<key>Red Component</key>
-				<real>0.99607843137254903</real>
+				<real>0.94614459427568298</real>
 			</dict>
 			<key>Guid</key>
 			<string>3B92ADBE-8890-4076-8DDE-66EFC8860813</string>
@@ -2083,7 +2091,7 @@ New Tab with Current Profile</string>
 	<key>NoSyncLastTipTime</key>
 	<real>524773529.34518802</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>53</integer>
+	<integer>54</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
