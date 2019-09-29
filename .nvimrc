@@ -29,6 +29,7 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
