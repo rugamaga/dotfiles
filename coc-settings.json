@@ -1,0 +1,14 @@
+{
+  "languageserver": {
+    "rust": {
+      "command": "rls",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml"]
+    },
+    "scala": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    }
+  }
+}

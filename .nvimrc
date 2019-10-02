@@ -27,12 +27,9 @@ Plug 'lambdalisue/gina.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'bfredl/nvim-miniyank'
 Plug 'dhruvasagar/vim-table-mode'
-Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'derekwyatt/vim-scala'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -76,6 +73,11 @@ set smartcase
 set wrapscan
 set incsearch
 set inccommand=split
+
+" ----------- completion and menu
+set updatetime=300
+set shortmess+=c
+set signcolumn=yes
 
 " ---------------------------- Leader
 let mapleader = ' '
@@ -124,7 +126,7 @@ let g:lightline = {
 \           ['mode', 'paste', 'gitgutter', 'gina', 'filename' ]
 \       ],
 \       'right': [
-\           ['pos', 'filetype', 'fileencoding', 'fileformat'],
+\           ['pos', 'cocstatus', 'filetype', 'fileencoding', 'fileformat'],
 \       ],
 \   },
 \   'component_function': {
@@ -136,6 +138,7 @@ let g:lightline = {
 \       'fileformat': 'LightlineFileformat',
 \       'filetype': 'LightlineFiletype',
 \       'fileencoding': 'LightlineFileencoding',
+\       'cocstatus': 'coc#status'
 \   },
 \}
 let g:lightline.inactive = g:lightline.active
@@ -207,6 +210,9 @@ function! LightlineFileencoding()
     return winwidth(0) > 60 ? strlen(&fenc) ? &fenc : &enc : ''
 endfunction
 
+" ---------------------------- coc
+let g:coc_config_home = $SETTINGS_ROOT
+
 " ---------------------------- key mapping
 
 " ----------- mode change
@@ -231,3 +237,36 @@ map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
 nnoremap gf :GFiles<Cr><Paste>
+
+" ----------- coc
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nmap <leader>ac <Plug>(coc-codeaction)
+
+nnoremap <silent> F :call CocAction('format')<CR>
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+MyAutocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap <Leader>n <Plug>(coc-rename)
+
+nmap <silent> <Leader>c <Plug>(coc-diagnostic-next)
+nnoremap <silent> <Leader>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <Leader>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <Leader>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent> <Leader>j  :<C-u>CocNext<CR>
+nnoremap <silent> <Leader>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <Leader>p  :<C-u>CocListResume<CR>
