@@ -18,6 +18,9 @@ brew install cmake
 brew install pkg-config
 brew install portaudio
 
+# for development languages
+brew install llvm
+
 # ------------ brew cask
 brew cask install alfred
 brew cask install iterm2

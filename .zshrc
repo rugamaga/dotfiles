@@ -33,7 +33,7 @@ export PIPENV_VENV_IN_PROJECT=true
 export PURE_POWER_MODE=modern
 
 # ----------- path
-export PATH="${HOME}/.anyenv/bin:$HOME/.cargo/bin:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:${PATH}"
+export PATH="${HOME}/.anyenv/bin:$HOME/.cargo/bin:/usr/local/opt/llvm/bin:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:${PATH}"
 
 # ------------------------- zplugin
 
