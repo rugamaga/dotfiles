@@ -236,7 +236,7 @@ map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
-nnoremap gf :GFiles<Cr><Paste>
+nnoremap gf :GFiles --cached --exclude-standard --others<Cr>
 
 " ----------- coc
 inoremap <silent><expr> <c-space> coc#refresh()
