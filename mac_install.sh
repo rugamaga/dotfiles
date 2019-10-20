@@ -20,6 +20,7 @@ brew install portaudio
 
 # for development languages
 brew install llvm
+brew install haskell-stack
 
 # ------------ brew cask
 brew cask install alfred
