@@ -12,6 +12,7 @@ brew install nkf
 brew install zsh
 brew install neovim
 brew install ripgrep
+brew install termshark
 
 # for development audio application with rust...
 brew install cmake
