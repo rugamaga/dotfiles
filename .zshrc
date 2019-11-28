@@ -12,13 +12,7 @@ export LC_ALL=ja_JP.UTF-8
 export LANG=ja_JP.UTF-8
 
 # ----------- terminfo
-
-if infocmp xterm-256color-italic &>/dev/null; then
-  export TERM=xterm-256color-italic
-else
-  echo "[WARN] There are no xterm-256color-italic"
-  export TERM=xterm-256color
-fi
+export TERM=xterm-256color
 
 # ----------- local
 export HOME_LOCAL="${HOME}/.local/"
