@@ -27,6 +27,7 @@ Plug 'lambdalisue/gina.vim'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'bfredl/nvim-miniyank'
 Plug 'dhruvasagar/vim-table-mode'
+Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
