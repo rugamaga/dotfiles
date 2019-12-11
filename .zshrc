@@ -98,6 +98,9 @@ fi
 # ------------------------- events
 chpwd_functions+=( neovim_autocd )
 
+# ------------------------- alias
+alias dkc=docker-compose
+
 # ------------------------- key binding
 
 # ----------- viins
