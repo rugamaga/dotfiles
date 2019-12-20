@@ -71,26 +71,20 @@ create_if_missing "$HOME/.gitconfig" << EOS
   path = ${SETTINGS_ROOT}/.gitconfig
 EOS
 
-# ------------ .config/nvim/init.vim
+# ------------ .vimrc
 mkdir -p $HOME/.config/nvim/
-create_if_missing "$HOME/.config/nvim/init.vim" << EOS
-let g:python_host_prog = '$HOME/.anyenv/envs/pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '$HOME/.anyenv/envs/pyenv/versions/neovim3/bin/python'
+create_if_missing "$HOME/.vimrc" << EOS
 
 " ------------------------- load common
-source ${SETTINGS_ROOT}/.nvimrc
+source ${SETTINGS_ROOT}/.vimrc
 EOS
-
 
 # ------------------------- .tmux.conf
 # TODO: if there exists external file importing method, use the method.
 create_if_missing "$HOME/.tmux.conf" << EOS
-set -g default-terminal "xterm-256color-italic"
+set -g default-terminal "xterm-256color"
 set-option -ga terminal-overrides ",xterm*:Tc:sitm=\E[3m"
 EOS
-
-# ------------------------- register terminfo
-tic -x xterm-256color-italic.terminfo
 
 # ------------------------- install anyenv
 export TMPDIR="$HOME/.tmp"
@@ -122,15 +116,9 @@ gem install bundler
 # ------------------------- install python
 LATEST_PYTHON2='2.7.15'
 pyenv install -s $LATEST_PYTHON2
-pyenv virtualenv $LATEST_PYTHON2 neovim2
-pyenv shell neovim2
-pip install neovim sexpdata websocket-client
 
 LATEST_PYTHON=`pyenv install --list | grep -e "^\s*[0-9]\+\.[0-9]\+\.[0-9]\+$" | tail -1`
 pyenv install -s $LATEST_PYTHON
-pyenv virtualenv $LATEST_PYTHON neovim3
-pyenv shell neovim3
-pip install neovim sexpdata websocket-client
 
 pyenv global $LATEST_PYTHON
 

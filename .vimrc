@@ -4,17 +4,17 @@ scriptencoding utf-8
 set termencoding=utf-8
 set fileencodings=utf-8,ucs-bom,euc-jp,cp932,sjis
 
-" ---------------------------- Use neovim
+" ---------------------------- Use vim
 set nocompatible
 
 " ---------------------------- Auto plugin install
-if empty(glob($HOME_LOCAL . '/share/nvim/site/autoload/plug.vim'))
-  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+if empty(glob($HOME . '/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'sainnhe/edge'
 Plug 'sheerun/vim-polyglot'
@@ -25,7 +25,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'airblade/vim-gitgutter'
 Plug 'lambdalisue/gina.vim'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'bfredl/nvim-miniyank'
+" Plug 'bfredl/nvim-miniyank'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf'
@@ -36,14 +36,15 @@ call plug#end()
 
 " ---------------------------- Color Scheme
 syntax on
-set termguicolors
+set notermguicolors
 set background=dark
 silent! colorscheme edge
 " set background color as transparent
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE
 hi! LineNr ctermbg=NONE guibg=NONE
-hi! EndOfBuffer guibg=NONE
+hi! EndOfBuffer ctermbg=NONE guibg=NONE
+hi! Terminal ctermbg=NONE guibg=NONE
 
 " ---------------------------- Basic Settings
 
@@ -73,7 +74,7 @@ set ignorecase
 set smartcase
 set wrapscan
 set incsearch
-set inccommand=split
+" set inccommand=split
 
 " ----------- completion and menu
 set updatetime=300
@@ -233,8 +234,8 @@ nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
 
 " ----------- yank & pasting
 " use miniyank for fixing : https://github.com/neovim/neovim/issues/1822
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
+" map p <Plug>(miniyank-autoput)
+" map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
 nnoremap gf :GFiles --cached --exclude-standard --others<Cr>
