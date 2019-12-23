@@ -81,22 +81,7 @@ setopt extended_glob
 
 # ------------------------- functions
 
-# changes buffer current directory when changed neovim terminal current directory.
-function neovim_autocd() {
-  if [[ $NVIM_LISTEN_ADDRESS ]] ; then
-    PYENV_VERSION=neovim3 python3 ${SETTINGS_ROOT}/bin/neovim-autocd.py
-  fi
-}
-
-if [[ $NVIM_LISTEN_ADDRESS ]] ; then
-  # In this context, we already in neovim terminal.
-  # so, we should open files on current neovim instance tab.
-  alias nvim="PYENV_VERSION=neovim3 nvr -s --remote-tab-silent"
-  export EDITOR="PYENV_VERSION=neovim3 nvr -s --remote-tab-wait-silent"
-fi
-
 # ------------------------- events
-chpwd_functions+=( neovim_autocd )
 
 # ------------------------- alias
 alias dkc=docker-compose
