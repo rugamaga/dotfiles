@@ -17,7 +17,6 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'sainnhe/edge'
-Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'editorconfig/editorconfig-vim'
@@ -31,6 +30,8 @@ Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -80,6 +81,9 @@ set incsearch
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+
+" ----------- autowrite
+set autowrite
 
 " ---------------------------- Leader
 let mapleader = ' '
