@@ -8,13 +8,13 @@ set fileencodings=utf-8,ucs-bom,euc-jp,cp932,sjis
 set nocompatible
 
 " ---------------------------- Auto plugin install
-if empty(glob($HOME . '/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob($HOME . '/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'sainnhe/edge'
 Plug 'itchyny/lightline.vim'
@@ -238,8 +238,8 @@ nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
 
 " ----------- yank & pasting
 " use miniyank for fixing : https://github.com/neovim/neovim/issues/1822
-" map p <Plug>(miniyank-autoput)
-" map P <Plug>(miniyank-autoPut)
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
 nnoremap gf :GFiles --cached --exclude-standard --others<Cr>

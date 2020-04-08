@@ -21,7 +21,7 @@ export HOME_LOCAL="${HOME}/.local/"
 export MANPATH="${HOME_LOCAL}/man:/usr/local/man:${MANPATH}"
 
 # ----------- editor
-export EDITOR="\\vim"
+export EDITOR="\\nvim"
 
 # ----------- golang
 export GOPATH=$HOME
