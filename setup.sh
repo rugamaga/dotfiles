@@ -132,6 +132,9 @@ pyenv global $LATEST_PYTHON
 
 pip install --user pipenv
 
+# install poetry (package bundler)
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+
 # ------------------------- install nodejs
 LATEST_NODEJS=`nodenv install --list | grep -v - | tail -1`
 nodenv install -s $LATEST_NODEJS
