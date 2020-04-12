@@ -32,6 +32,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'sheerun/vim-polyglot'
+Plug 'bfredl/nvim-ipy'
 
 call plug#end()
 
@@ -65,7 +66,7 @@ set shiftwidth=2
 set expandtab
 
 " ----------- clipboard
-set clipboard=unnamed
+set clipboard+=unnamedplus
 
 " ----------- fold
 set nofoldenable
@@ -238,8 +239,8 @@ nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
 
 " ----------- yank & pasting
 " use miniyank for fixing : https://github.com/neovim/neovim/issues/1822
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
+" map p <Plug>(miniyank-autoput)
+" map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
 nnoremap gf :GFiles --cached --exclude-standard --others<Cr>
@@ -276,3 +277,6 @@ nnoremap <silent> <Leader>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent> <Leader>j  :<C-u>CocNext<CR>
 nnoremap <silent> <Leader>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <Leader>p  :<C-u>CocListResume<CR>
+
+" ----------- nvim-ipy
+MyAutocmd FileType python nnoremap <Leader>i :call IPyRunCell()<Cr>
