@@ -10,7 +10,7 @@ brew install curl
 brew install git
 brew install nkf
 brew install zsh
-brew install vim
+brew install neovim
 brew install ripgrep
 brew install termshark
 
