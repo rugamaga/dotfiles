@@ -58,7 +58,7 @@ zplugin snippet https://github.com/sainnhe/edge/blob/master/zsh/.zsh-pure-power-
 zplugin ice wait"0" lucid; zplugin light mollifier/anyframe
 
 zplugin ice wait"0" lucid as"program" from"gh-r" mv"fzf-* -> fzf"; zplugin light junegunn/fzf-bin
-zplugin ice wait"0" lucid as"program" from"gh-r" pick"*/ghq"; zplugin light motemen/ghq
+zplugin ice wait"0" lucid as"program" from"gh-r" pick"*/ghq"; zplugin light x-motemen/ghq
 zplugin ice wait"0" lucid as"program" from"gh-r" mv"jq-* -> jq"; zplugin light stedolan/jq
 
 zplugin ice wait"0" lucid atload"_zsh_autosuggest_start"
