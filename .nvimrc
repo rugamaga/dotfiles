@@ -33,6 +33,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'sheerun/vim-polyglot'
 Plug 'bfredl/nvim-ipy'
+Plug 'yuki-ycino/fzf-preview.vim'
 
 call plug#end()
 
@@ -243,7 +244,7 @@ nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
 " map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
-nnoremap gf :GFiles --cached --exclude-standard --others<Cr>
+nnoremap gf :FzfPreviewGitFiles --cached --exclude-standard --others<Cr>
 
 " ----------- coc
 inoremap <silent><expr> <c-space> coc#refresh()
