@@ -116,7 +116,7 @@ rbenv global $LATEST_RUBY
 gem install bundler
 
 # ------------------------- install python
-LATEST_PYTHON2='2.7.15'
+LATEST_PYTHON2=`pyenv install --list | grep -e "^\s*2\.[0-9]\+\.[0-9]\+$" | tail -1`
 pyenv install -s $LATEST_PYTHON2
 pyenv virtualenv $LATEST_PYTHON2 neovim2
 pyenv shell neovim2
