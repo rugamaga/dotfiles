@@ -13,6 +13,7 @@ brew install zsh
 brew install neovim
 brew install ripgrep
 brew install termshark
+brew install ctop
 
 # for development audio application with rust...
 brew install cmake
