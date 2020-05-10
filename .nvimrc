@@ -38,16 +38,11 @@ Plug 'yuki-ycino/fzf-preview.vim'
 call plug#end()
 
 " ---------------------------- Color Scheme
+let g:edge_transparent_background=1
 syntax on
 set notermguicolors
 set background=dark
 silent! colorscheme edge
-" set background color as transparent
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE
-hi! LineNr ctermbg=NONE guibg=NONE
-hi! EndOfBuffer ctermbg=NONE guibg=NONE
-hi! Terminal ctermbg=NONE guibg=NONE
 
 " ---------------------------- Basic Settings
 
