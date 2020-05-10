@@ -221,6 +221,7 @@ let g:coc_config_home = $SETTINGS_ROOT
 " ----------- mode change
 inoremap <C-j> <Esc>
 nnoremap <C-j> <Esc>
+tnoremap <C-j> <C-\><C-n>
 
 " ----------- close
 nnoremap qq <Esc>:q<Cr>
