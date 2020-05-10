@@ -40,7 +40,7 @@ call plug#end()
 " ---------------------------- Color Scheme
 let g:edge_transparent_background=1
 syntax on
-set notermguicolors
+set termguicolors
 set background=dark
 silent! colorscheme edge
 
