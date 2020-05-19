@@ -241,6 +241,7 @@ nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
 
 " ----------- shortcut fzf
 nnoremap gf :FzfPreviewGitFiles --cached --exclude-standard --others<Cr>
+nnoremap qf :FzfPreviewQuickFix<Cr>
 
 " ----------- coc
 inoremap <silent><expr> <c-space> coc#refresh()
