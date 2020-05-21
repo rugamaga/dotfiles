@@ -235,14 +235,19 @@ nnoremap <silent> th :<C-u>tabprevious<Cr>
 " create current buffer tabpage
 nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
 
+" ----------- builds
+nnoremap mt :make test<Cr>
+
 " ----------- yank & pasting
 " use miniyank for fixing : https://github.com/neovim/neovim/issues/1822
 " map p <Plug>(miniyank-autoput)
 " map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
+let g:fzf_preview_floating_window_rate=1
 nnoremap gf :FzfPreviewGitFiles --cached --exclude-standard --others<Cr>
 nnoremap qf :FzfPreviewQuickFix<Cr>
+nnoremap gs :FzfPreviewGitStatus<Cr>
 
 " ----------- coc
 inoremap <silent><expr> <c-space> coc#refresh()
