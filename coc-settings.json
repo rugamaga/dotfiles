@@ -1,9 +1,10 @@
 {
+  "suggest.noselect": false,
+  "suggest.preferCompleteThanJumpPlaceholder": true,
   "languageserver": {
-    "rust": {
-      "command": "rls",
-      "filetypes": ["rust"],
-      "rootPatterns": ["Cargo.toml"]
+    "rust-analyzer": {
+      "rootPatterns": ["Cargo.toml", ".git/"],
+      "filetypes": ["rust"]
     },
     "scala": {
       "command": "metals-vim",
@@ -26,6 +27,11 @@
         "languageServerHaskell": {
         }
       }
+    },
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".git/"],
+      "filetypes": ["go"]
     }
   }
 }
