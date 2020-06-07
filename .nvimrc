@@ -24,17 +24,19 @@ Plug 'thinca/vim-quickrun'
 Plug 'airblade/vim-gitgutter'
 Plug 'lambdalisue/gina.vim'
 Plug 'bronson/vim-trailing-whitespace'
-" Plug 'bfredl/nvim-miniyank'
+Plug 'bfredl/nvim-miniyank'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'sheerun/vim-polyglot'
-Plug 'bfredl/nvim-ipy'
 Plug 'yuki-ycino/fzf-preview.vim'
+Plug 'fatih/vim-go'
+Plug 'sheerun/vim-polyglot'
+Plug 'neovim/nvim-lsp'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete-lsp'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'bfredl/nvim-ipy'
 
 call plug#end()
 
@@ -130,7 +132,7 @@ let g:lightline = {
 \           ['mode', 'paste', 'gitgutter', 'gina', 'filename' ]
 \       ],
 \       'right': [
-\           ['pos', 'cocstatus', 'filetype', 'fileencoding', 'fileformat'],
+\           ['pos', 'filetype', 'fileencoding', 'fileformat'],
 \       ],
 \   },
 \   'component_function': {
@@ -141,8 +143,7 @@ let g:lightline = {
 \       'filename': 'LightlineFilename',
 \       'fileformat': 'LightlineFileformat',
 \       'filetype': 'LightlineFiletype',
-\       'fileencoding': 'LightlineFileencoding',
-\       'cocstatus': 'coc#status'
+\       'fileencoding': 'LightlineFileencoding'
 \   },
 \}
 let g:lightline.inactive = g:lightline.active
@@ -214,9 +215,6 @@ function! LightlineFileencoding()
     return winwidth(0) > 60 ? strlen(&fenc) ? &fenc : &enc : ''
 endfunction
 
-" ---------------------------- coc
-let g:coc_config_home = $SETTINGS_ROOT
-
 " ---------------------------- key mapping
 
 " ----------- mode change
@@ -240,8 +238,8 @@ nnoremap mt :make test<Cr>
 
 " ----------- yank & pasting
 " use miniyank for fixing : https://github.com/neovim/neovim/issues/1822
-" map p <Plug>(miniyank-autoput)
-" map P <Plug>(miniyank-autoPut)
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
 let g:fzf_preview_floating_window_rate=1
@@ -249,38 +247,38 @@ nnoremap gf :FzfPreviewGitFiles --cached --exclude-standard --others<Cr>
 nnoremap qf :FzfPreviewQuickFix<Cr>
 nnoremap gs :FzfPreviewGitStatus<Cr>
 
-" ----------- coc
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" ----------- neovim-lsp
+lua << END
+  require'nvim_lsp'.tsserver.setup{}
+  require'nvim_lsp'.rust_analyzer.setup{}
+  require'nvim_lsp'.gopls.setup{}
+  require'nvim_lsp'.terraformls.setup{}
+  require'nvim_lsp'.dockerls.setup{}
+  require'nvim_lsp'.jsonls.setup{}
+  require'nvim_lsp'.vimls.setup{}
+END
 
-nmap <leader>ac <Plug>(coc-codeaction)
+MyAutocmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
+MyAutocmd Filetype typescriptreact setlocal omnifunc=v:lua.vim.lsp.omnifunc
+MyAutocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
+MyAutocmd Filetype go setlocal omnifunc=v:lua.vim.lsp.omnifunc
+MyAutocmd Filetype terraform setlocal omnifunc=v:lua.vim.lsp.omnifunc
+MyAutocmd Filetype docker setlocal omnifunc=v:lua.vim.lsp.omnifunc
+MyAutocmd Filetype json setlocal omnifunc=v:lua.vim.lsp.omnifunc
+MyAutocmd Filetype vim setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
-nnoremap <silent> F :call CocAction('format')<CR>
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-MyAutocmd CursorHold * silent call CocActionAsync('highlight')
-
-nmap <Leader>n <Plug>(coc-rename)
-
-nmap <silent> <Leader>c <Plug>(coc-diagnostic-next)
-nnoremap <silent> <Leader>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent> <Leader>o  :<C-u>CocList outline<cr>
-nnoremap <silent> <Leader>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent> <Leader>j  :<C-u>CocNext<CR>
-nnoremap <silent> <Leader>k  :<C-u>CocPrev<CR>
-nnoremap <silent> <Leader>p  :<C-u>CocListResume<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 
 " ----------- nvim-ipy
 MyAutocmd FileType python nnoremap <Leader>i :call IPyRunCell()<Cr>
+
+" ----------- vim-go
+let g:go_fmt_command = "goimports"
+
+" ----------- deoplate
+let g:deoplete#enable_at_startup = 1
