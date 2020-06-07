@@ -37,6 +37,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete-lsp'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'bfredl/nvim-ipy'
+Plug 'janko/vim-test'
 
 call plug#end()
 
@@ -282,3 +283,7 @@ let g:go_fmt_command = "goimports"
 
 " ----------- deoplate
 let g:deoplete#enable_at_startup = 1
+
+" ----------- vim-test
+nmap <silent> tn :TestNearest<CR>
+nmap <silent> tf :TestFile<CR>
