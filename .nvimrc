@@ -58,6 +58,9 @@ set fileformats=unix,dos
 " ----------- indicator
 set number
 
+" ----------- buffers
+set hidden
+
 " ----------- tab pages
 set showtabline=2
 
@@ -77,15 +80,21 @@ set ignorecase
 set smartcase
 set wrapscan
 set incsearch
-" set inccommand=split
+set inccommand=split
 
 " ----------- completion and menu
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+set pumheight=10
 
-" ----------- autowrite
+" ----------- auto read/write
+set autoread
 set autowrite
+
+" ----------- backup
+set nobackup
+set noswapfile
 
 " ---------------------------- Leader
 let mapleader = ' '
@@ -248,6 +257,7 @@ let g:fzf_preview_floating_window_rate=1
 nnoremap gf :FzfPreviewGitFiles --cached --exclude-standard --others<Cr>
 nnoremap qf :FzfPreviewQuickFix<Cr>
 nnoremap gs :FzfPreviewGitStatus<Cr>
+nnoremap gb :FzfPreviewBuffers<Cr>
 
 " ----------- neovim-lsp
 lua << END
