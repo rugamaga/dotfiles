@@ -14,6 +14,7 @@ brew install neovim
 brew install ripgrep
 brew install termshark
 brew install ctop
+brew install github/gh/gh
 
 # for development audio application with rust...
 brew install cmake
