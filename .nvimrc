@@ -39,6 +39,7 @@ Plug 'Shougo/deoplete-lsp'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'bfredl/nvim-ipy'
 Plug 'janko/vim-test'
+Plug 'sebdah/vim-delve', { 'for': ['go'] }
 
 call plug#end()
 
