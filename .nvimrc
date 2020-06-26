@@ -40,6 +40,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'bfredl/nvim-ipy'
 Plug 'janko/vim-test'
 Plug 'sebdah/vim-delve', { 'for': ['go'] }
+Plug 'ka-tsu-mo/at-vim-coder'
 
 call plug#end()
 
@@ -299,3 +300,10 @@ let g:deoplete#enable_at_startup = 1
 " ----------- vim-test
 nmap <silent> tn :TestNearest<CR>
 nmap <silent> tf :TestFile<CR>
+
+" ----------- at-vim-coder
+let g:at_vim_coder_workspace = '~/work/atcoder'
+let g:at_vim_coder_template_file = '~/work/atcoder/template.cpp'
+
+nmap <silent> ;t <Plug>(at-vim-coder-run-test)<Plug>(at-vim-coder-check-status)
+nmap <silent> ;s <Plug>(at-vim-coder-submit)
