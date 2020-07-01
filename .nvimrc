@@ -41,6 +41,7 @@ Plug 'bfredl/nvim-ipy'
 Plug 'janko/vim-test'
 Plug 'sebdah/vim-delve', { 'for': ['go'] }
 Plug 'ka-tsu-mo/at-vim-coder'
+Plug 'mipmip/vim-scimark'
 
 call plug#end()
 
@@ -260,6 +261,7 @@ nnoremap gf :FzfPreviewGitFiles --cached --exclude-standard --others<Cr>
 nnoremap qf :FzfPreviewQuickFix<Cr>
 nnoremap gs :FzfPreviewGitStatus<Cr>
 nnoremap gb :FzfPreviewBuffers<Cr>
+nnoremap gp :FzfPreviewProjectGrep<Space>
 
 " ----------- neovim-lsp
 lua << END
