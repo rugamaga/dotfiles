@@ -54,7 +54,7 @@ if [[ ! -d ~/.zplugin/bin/zmodules/Src ]]; then
 fi
 
 zplugin light romkatv/powerlevel10k
-zplugin snippet https://github.com/sainnhe/edge/blob/master/zsh/.zsh-pure-power-dark
+# zplugin snippet https://github.com/sainnhe/edge/blob/master/zsh/.zsh-pure-power-dark
 
 zplugin ice wait"0" lucid; zplugin light mollifier/anyframe
 
