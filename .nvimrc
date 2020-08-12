@@ -294,7 +294,7 @@ nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 MyAutocmd FileType python nnoremap <Leader>i :call IPyRunCell()<Cr>
 
 " ----------- vim-go
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gofumpt"
 
 " ----------- deoplate
 let g:deoplete#enable_at_startup = 1
