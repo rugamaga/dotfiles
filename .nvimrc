@@ -30,7 +30,7 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'yuki-ycino/fzf-preview.vim'
+Plug 'yuki-ycino/fzf-preview.vim', {'do': 'yarn install'}
 Plug 'fatih/vim-go'
 Plug 'sheerun/vim-polyglot'
 Plug 'neovim/nvim-lsp'
