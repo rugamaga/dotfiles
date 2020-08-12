@@ -28,7 +28,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'bfredl/nvim-miniyank'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'andymass/vim-matchup'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'fatih/vim-go'
