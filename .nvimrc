@@ -31,7 +31,7 @@ Plug 'andymass/vim-matchup'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim', {'do': 'yarn install'}
-Plug 'fatih/vim-go'
+Plug 'mattn/vim-goimports'
 Plug 'sheerun/vim-polyglot'
 Plug 'neovim/nvim-lsp'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
