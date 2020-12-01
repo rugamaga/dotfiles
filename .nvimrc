@@ -42,6 +42,7 @@ Plug 'janko/vim-test'
 Plug 'sebdah/vim-delve', { 'for': ['go'] }
 Plug 'ka-tsu-mo/at-vim-coder'
 Plug 'mipmip/vim-scimark'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -295,6 +296,8 @@ MyAutocmd FileType python nnoremap <Leader>i :call IPyRunCell()<Cr>
 
 " ----------- vim-go
 let g:go_fmt_command = "gofumpt"
+let g:go_fmt_autosave = 1
+let g:go_imports_autosave = 1
 
 " ----------- deoplate
 let g:deoplete#enable_at_startup = 1
