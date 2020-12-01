@@ -33,5 +33,6 @@
 [alias]
     alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
     staged = diff --cached
+    delete-merged-branch = !git branch --merged | grep -v -E '\\*|develop|master|main' | xargs git branch -d; git fetch --prune
 [ghq]
     root = ~/src
