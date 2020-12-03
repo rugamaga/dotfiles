@@ -43,6 +43,7 @@ Plug 'sebdah/vim-delve', { 'for': ['go'] }
 Plug 'ka-tsu-mo/at-vim-coder'
 Plug 'mipmip/vim-scimark'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'ryym/vim-viler'
 
 call plug#end()
 
