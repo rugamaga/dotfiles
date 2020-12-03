@@ -1,0 +1,6 @@
+*.rb diff=ruby
+*.rake diff=ruby
+*.gemspec diff=ruby
+*.py eol=lf diff=python
+*.sh whitespace=indent,trail,space eol=lf
+*.bat eol=crlf

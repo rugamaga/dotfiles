@@ -4,6 +4,7 @@
     ignorecase = false
     pager = nkf -w | LESSCHARSET=utf-8 less
     excludesfile = ~/dotfiles/.gitignore_global
+    attributesfile = ~/dotfiles/.gitattributes
 [push]
     default = simple
 [pull]
