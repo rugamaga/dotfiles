@@ -127,9 +127,18 @@ MyAutocmd BufRead,BufNewFile *.sbt set filetype=scala
 
 " ---------------------------- quickrun
 let g:quickrun_config = {}
-let g:quickrun_config.cpp = {
+let g:quickrun_config['cpp'] = {
       \ 'type': 'cpp',
-      \ 'cmdopt': '-std=c++14'
+      \ 'cmdopt': '-std=c++14',
+      \ }
+let g:quickrun_config['typescript'] = {
+      \ 'type': 'typescript/tsc',
+      \ }
+let g:quickrun_config['typescript/tsc'] = {
+      \ 'command': 'tsc',
+      \ 'exec': ['%c --strict --target esnext --module commonjs %o %s', 'node %s:r.js'],
+      \ 'tempfile': '%{tempname()}.ts',
+      \ 'hook/sweep/files': ['%S:p:r.js'],
       \ }
 
 " ---------------------------- indent-guides
