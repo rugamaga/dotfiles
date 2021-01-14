@@ -277,13 +277,16 @@ nnoremap gp :FzfPreviewProjectGrep<Space>
 
 " ----------- neovim-lsp
 lua << END
-  require'lspconfig'.tsserver.setup{}
-  require'lspconfig'.rust_analyzer.setup{}
-  require'lspconfig'.gopls.setup{}
-  require'lspconfig'.terraformls.setup{}
-  require'lspconfig'.dockerls.setup{}
-  require'lspconfig'.jsonls.setup{}
-  require'lspconfig'.vimls.setup{}
+  local lspconfig = require'lspconfig'
+  lspconfig.tsserver.setup{}
+  lspconfig.rust_analyzer.setup{}
+  lspconfig.gopls.setup{
+    root_dir = lspconfig.util.root_pattern('.git');
+  }
+  lspconfig.terraformls.setup{}
+  lspconfig.dockerls.setup{}
+  lspconfig.jsonls.setup{}
+  lspconfig.vimls.setup{}
 END
 
 MyAutocmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
@@ -309,6 +312,8 @@ MyAutocmd FileType python nnoremap <Leader>i :call IPyRunCell()<Cr>
 let g:go_fmt_command = "gofumpt"
 let g:go_fmt_autosave = 1
 let g:go_imports_autosave = 1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " ----------- deoplate
 let g:deoplete#enable_at_startup = 1
