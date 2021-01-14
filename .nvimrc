@@ -33,7 +33,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim', {'do': 'yarn install'}
 Plug 'mattn/vim-goimports'
 Plug 'sheerun/vim-polyglot'
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete-lsp'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -44,6 +44,7 @@ Plug 'ka-tsu-mo/at-vim-coder'
 Plug 'mipmip/vim-scimark'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ryym/vim-viler'
+Plug 'pechorin/any-jump.vim'
 
 call plug#end()
 
@@ -276,13 +277,13 @@ nnoremap gp :FzfPreviewProjectGrep<Space>
 
 " ----------- neovim-lsp
 lua << END
-  require'nvim_lsp'.tsserver.setup{}
-  require'nvim_lsp'.rust_analyzer.setup{}
-  require'nvim_lsp'.gopls.setup{}
-  require'nvim_lsp'.terraformls.setup{}
-  require'nvim_lsp'.dockerls.setup{}
-  require'nvim_lsp'.jsonls.setup{}
-  require'nvim_lsp'.vimls.setup{}
+  require'lspconfig'.tsserver.setup{}
+  require'lspconfig'.rust_analyzer.setup{}
+  require'lspconfig'.gopls.setup{}
+  require'lspconfig'.terraformls.setup{}
+  require'lspconfig'.dockerls.setup{}
+  require'lspconfig'.jsonls.setup{}
+  require'lspconfig'.vimls.setup{}
 END
 
 MyAutocmd Filetype typescript setlocal omnifunc=v:lua.vim.lsp.omnifunc
