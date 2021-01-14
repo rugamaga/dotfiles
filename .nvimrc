@@ -268,11 +268,12 @@ map P <Plug>(miniyank-autoPut)
 
 " ----------- shortcut fzf
 let g:fzf_preview_floating_window_rate=1
-nnoremap gf :FzfPreviewGitFiles --cached --exclude-standard --others<Cr>
-nnoremap qf :FzfPreviewQuickFix<Cr>
-nnoremap gs :FzfPreviewGitStatus<Cr>
-nnoremap gb :FzfPreviewBuffers<Cr>
-nnoremap gp :FzfPreviewProjectGrep<Space>
+nnoremap gf :FzfPreviewProjectFilesRpc --cached --exclude-standard --others<Cr>
+nnoremap qf :FzfPreviewQuickFixRpc<Cr>
+nnoremap gs :FzfPreviewGitStatusRpc<Cr>
+nnoremap gb :FzfPreviewBuffersRpc<Cr>
+nnoremap gp :FzfPreviewProjectGrepRpc<Space>
+nnoremap gm :FzfPreviewProjectMruFilesRpc<Cr>
 
 " ----------- neovim-lsp
 lua << END
