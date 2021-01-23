@@ -35,6 +35,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'neovim/nvim-lspconfig'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete-lsp'
+Plug 'Shougo/denite.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'bfredl/nvim-ipy'
 Plug 'janko/vim-test'
@@ -44,6 +45,10 @@ Plug 'mipmip/vim-scimark'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ryym/vim-viler'
 Plug 'pechorin/any-jump.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+
+  let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
