@@ -2,7 +2,7 @@
     autocrlf = false
     quotepath = false
     ignorecase = false
-    pager = nkf -w | LESSCHARSET=utf-8 less
+    pager = delta
     excludesfile = ~/dotfiles/.gitignore_global
     attributesfile = ~/dotfiles/.gitattributes
 [push]
@@ -37,3 +37,12 @@
     delete-merged-branch = !git branch --merged | grep -v -E '\\*|develop|master|main' | xargs git branch -d; git fetch --prune
 [ghq]
     root = ~/src
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+[interactive]
+    diffFilter = delta

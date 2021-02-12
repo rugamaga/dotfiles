@@ -16,6 +16,25 @@ brew install termshark
 brew install ctop
 brew install github/gh/gh
 brew install nektos/tap/act
+brew install bat
+brew install lsd
+brew install navi
+brew install tealdeer
+brew install git-delta
+brew install xsv
+brew tap wfxr/csview
+brew install csview
+brew install bandwhich
+brew install gping
+brew install ht-rust
+brew install dog
+brew install hexyl
+brew install bingrep
+brew install tokei
+brew install grex
+brew install silicon
+brew install angle-grinder
+brew install choose-rust
 
 # for development audio application with rust...
 brew install cmake
