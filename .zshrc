@@ -34,7 +34,7 @@ export PURE_POWER_MODE=modern
 typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito'
 
 # ----------- path
-export PATH="${HOME}/.anyenv/bin:$HOME/.cargo/bin:/usr/local/opt/llvm/bin:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:${PATH}"
+export PATH="$HOME/.cargo/bin:/usr/local/opt/llvm/bin:${HOME}/bin:${HOME}/.local/bin:/usr/local/bin:${PATH}"
 
 # ------------------------- zplugin
 
@@ -110,10 +110,9 @@ function smux() {
   ssh $* -t "tmux -u -CC new -A -s smux-\${\$(hostname)//\\./-}"
 }
 
-# ------------------------- eval envs
-if [ -x "$(command -v anyenv)" ]; then
-  eval "$(anyenv init - --no-rehash zsh)"
-fi
+# ------------------------- load asdf
+. $HOME/.asdf/asdf.sh
+fpath=($HOME/.asdf/completions $fpath)
 
 # ------------------------- p10k
 [[ -f ${SETTINGS_ROOT}/.p10k.zsh ]] && source ${SETTINGS_ROOT}/.p10k.zsh
