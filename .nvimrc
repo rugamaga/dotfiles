@@ -275,6 +275,7 @@ map P <Plug>(miniyank-autoPut)
 let g:fzf_preview_floating_window_rate=1
 nnoremap gf :FzfPreviewProjectFilesRpc --cached --exclude-standard --others<Cr>
 nnoremap qf :FzfPreviewQuickFixRpc<Cr>
+nnoremap ga :FzfPreviewGitActionRpc<Cr>
 nnoremap gs :FzfPreviewGitStatusRpc<Cr>
 nnoremap gb :FzfPreviewBuffersRpc<Cr>
 nnoremap gp :FzfPreviewProjectGrepRpc<Space>
