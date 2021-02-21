@@ -123,8 +123,8 @@ EOS
 # ------------ .config/nvim/init.vim
 mkdir -p $HOME/.config/nvim/
 create_if_missing "$HOME/.config/nvim/init.vim" << EOS
-let g:python_host_prog = '$HOME/.asdf/installs/python/2.7.18/bin/python2'
-let g:python3_host_prog = '$HOME/.asdf/installs/python/3.9.1/bin/python'
+let g:python_host_prog = '$HOME/.asdf/installs/python/${LATEST_PYTHON2}/bin/python2'
+let g:python3_host_prog = '$HOME/.asdf/installs/python/${LATEST_PYTHON}/bin/python'
 
 " ------------------------- load common
 source ${SETTINGS_ROOT}/.nvimrc
