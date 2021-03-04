@@ -266,6 +266,11 @@ nnoremap <silent> tb :execute "tabnew \| buffer " . bufnr('%')<Cr>
 " ----------- builds
 nnoremap mt :make test<Cr>
 
+" ----------- for debug
+MyAutocmd Filetype typescript nnoremap <silent> <buffer> <Leader>dp :silent put=['// tslint:disable-next-line', 'console.log(\"<C-r><C-w>\", <C-r><C-w>);']<CR>-2==+
+MyAutocmd Filetype typescriptreact nnoremap <silent> <buffer> <Leader>dp :silent put=['// tslint:disable-next-line', 'console.log(\"<C-r><C-w>\", <C-r><C-w>);']<CR>-2==+
+MyAutocmd Filetype go nnoremap <silent> <buffer> <Leader>dp :silent put=['fmt.Printf(\"<C-r><C-w>=%v\", <C-r><C-w>) // nolint']<CR>-2==+
+
 " ----------- yank & pasting
 " use miniyank for fixing : https://github.com/neovim/neovim/issues/1822
 map p <Plug>(miniyank-autoput)
