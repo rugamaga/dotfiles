@@ -45,4 +45,4 @@
     file-style = bold yellow ul
     file-decoration-style = none
 [interactive]
-    diffFilter = delta
+    diffFilter = delta --color-only
