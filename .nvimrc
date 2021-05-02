@@ -47,8 +47,9 @@ Plug 'ryym/vim-viler'
 Plug 'pechorin/any-jump.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'sjl/gundo.vim'
 
-  let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 call plug#end()
 
