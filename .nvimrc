@@ -51,6 +51,7 @@ Plug 'Shougo/echodoc.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
+Plug 'ervandew/supertab'
 
 call plug#end()
 
@@ -338,10 +339,13 @@ nmap <silent> tn :TestNearest<CR>
 nmap <silent> tf :TestFile<CR>
 
 " ----------- UltiSnips
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsJumpForwardTrigger='<tab>'
+let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 let g:UltiSnipsEditSplit='vertical'
+
+" ----------- SuperTab
+let g:SuperTabDefaultCompletionType='<C-n>'
 
 " ----------- at-vim-coder
 let g:at_vim_coder_workspace = '~/work/atcoder'
