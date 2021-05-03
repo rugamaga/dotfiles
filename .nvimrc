@@ -48,6 +48,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'sjl/gundo.vim'
 Plug 'Shougo/echodoc.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 call plug#end()
 
@@ -333,6 +335,12 @@ let g:echodoc#type='floating'
 " ----------- vim-test
 nmap <silent> tn :TestNearest<CR>
 nmap <silent> tf :TestFile<CR>
+
+" ----------- UltiSnips
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+let g:UltiSnipsEditSplit='vertical'
 
 " ----------- at-vim-coder
 let g:at_vim_coder_workspace = '~/work/atcoder'
