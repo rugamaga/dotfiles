@@ -50,6 +50,7 @@ Plug 'sjl/gundo.vim'
 Plug 'Shougo/echodoc.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
