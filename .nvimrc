@@ -42,14 +42,12 @@ Plug 'janko/vim-test'
 Plug 'sebdah/vim-delve', { 'for': ['go'] }
 Plug 'ka-tsu-mo/at-vim-coder'
 Plug 'mipmip/vim-scimark'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'ryym/vim-viler'
 Plug 'pechorin/any-jump.vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'sjl/gundo.vim'
-
-let g:deoplete#enable_at_startup = 1
+Plug 'Shougo/echodoc.vim'
 
 call plug#end()
 
@@ -320,15 +318,17 @@ nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 " ----------- nvim-ipy
 MyAutocmd FileType python nnoremap <Leader>i :call IPyRunCell()<Cr>
 
-" ----------- vim-go
-let g:go_fmt_command = "gofumpt"
-let g:go_fmt_autosave = 1
-let g:go_imports_autosave = 1
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
+" ----------- vim-goimports
+let g:goimports=1
+let g:goimports_simplify=1
+let g:goimports_simplify_cmd='gofumpt'
 
 " ----------- deoplate
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
+
+" ----------- echodoc
+let g:echodoc#enable_at_startup=1
+let g:echodoc#type='floating'
 
 " ----------- vim-test
 nmap <silent> tn :TestNearest<CR>
