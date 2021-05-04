@@ -52,6 +52,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-commentary'
 Plug 'ervandew/supertab'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
@@ -337,6 +338,8 @@ let g:echodoc#type='floating'
 " ----------- vim-test
 nmap <silent> tn :TestNearest<CR>
 nmap <silent> tf :TestFile<CR>
+" let test#strategy = 'dispatch_background'
+let test#strategy = 'dispatch'
 
 " ----------- UltiSnips
 let g:UltiSnipsExpandTrigger='<tab>'
