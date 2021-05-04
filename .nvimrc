@@ -338,6 +338,7 @@ let g:echodoc#type='floating'
 " ----------- vim-test
 nmap <silent> tn :TestNearest<CR>
 nmap <silent> tf :TestFile<CR>
+nmap <silent> tv :TestVisit<CR>
 " let test#strategy = 'dispatch_background'
 let test#strategy = 'dispatch'
 
