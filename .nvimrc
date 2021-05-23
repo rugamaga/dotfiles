@@ -255,6 +255,9 @@ inoremap <C-j> <Esc>
 nnoremap <C-j> <Esc>
 tnoremap <C-j> <C-\><C-n>
 
+" ----------- y-cino's zero
+noremap <expr> 0 getline('.')[0 : col('.') - 2] =~# '^\s\+$' ? '0' : '^'
+
 " ----------- close
 nnoremap qq <Esc>:q<Cr>
 
