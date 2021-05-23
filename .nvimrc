@@ -352,3 +352,7 @@ let g:UltiSnipsEditSplit='vertical'
 
 " ----------- SuperTab
 let g:SuperTabDefaultCompletionType='<C-n>'
+
+" ----------- polyglot
+let g:vim_markdown_frontmatter=1
+let g:vim_markdown_math=1
