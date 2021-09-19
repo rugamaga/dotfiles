@@ -53,7 +53,7 @@ if [[ ! -d ~/.zplugin/bin/zmodules/Src ]]; then
   zplugin module build
 fi
 
-zplugin light romkatv/powerlevel10k
+zplugin ice depth=1; zplugin light romkatv/powerlevel10k
 # zplugin snippet https://github.com/sainnhe/edge/blob/master/zsh/.zsh-pure-power-dark
 
 zplugin ice wait"0" lucid; zplugin light mollifier/anyframe
